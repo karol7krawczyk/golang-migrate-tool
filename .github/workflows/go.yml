@@ -13,6 +13,12 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    env:
+      DB_NAME: migrations
+      DB_TABLE: migrations
+      MIGRATION_PATH: migrations/data
+      DB_TYPE: sqlite
+      
     steps:
     - uses: actions/checkout@v4
 

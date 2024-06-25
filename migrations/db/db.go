@@ -45,7 +45,7 @@ func GetConnection(config config.Config) (*sql.DB, error) {
 		return db, nil
 	case "sqlite":
 		//const dbPath = "./your_database.db" // Replace with the actual path to your database file
-		db, err := sql.Open("sqlite3", config.DBName)
+		db, err := sql.Open("sqlite3", config.DBType)
 		if err != nil {
 			panic(err)
 		}

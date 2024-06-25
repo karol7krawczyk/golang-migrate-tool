@@ -24,12 +24,10 @@ func setupTestDB(t *testing.T) *sql.DB {
 		User:      os.Getenv("DB_USER"),
 		Passwd:    os.Getenv("DB_PASSWORD"),
 		TableName: os.Getenv("DB_TABLE"),
-		//Addr:      "localhost:3306", // Change this based on your database configuration
 		Addr:   os.Getenv("DB_HOST") + ":" + os.Getenv("DB_HOST"), // Change this based on your database configuration
 		DBName: os.Getenv("DB_NAME"),
 		Path:   os.Getenv("MIGRATION_PATH"),
-		//DBType: "sqlite", // Change this to mysql or postgres as needed
-		DBType: "mysql", // Change this to mysql or postgres as needed
+		DBType: os.Getenv("DB_TYPE"), // Change this to mysql or postgres as needed
 	}
 
 	database, err := db.GetConnection(testConfig)
@@ -85,7 +83,7 @@ func TestAddAndRemoveMigration(t *testing.T) {
 	db := setupTestDB(t)
 	defer teardownTestDB(db)
 
-	migration := "22220101"
+	migration := "22220101120001"
 	err := handlers.AddMigration(db, testConfig, migration)
 	if err != nil {
 		t.Fatalf("Failed to add migration: %v", err)
@@ -136,8 +134,8 @@ func TestRunQueriesInTransaction(t *testing.T) {
 	defer teardownTestDB(db)
 
 	queries := []string{
-		fmt.Sprintf("INSERT INTO %s (migration, applied_at) VALUES ('20240208', '%s')", testConfig.TableName, time.Now().Format("2006-01-02 15:04:05")),
-		fmt.Sprintf("INSERT INTO %s (migration, applied_at) VALUES ('20240209', '%s')", testConfig.TableName, time.Now().Format("2006-01-02 15:04:05")),
+		fmt.Sprintf("INSERT INTO %s (migration, applied_at) VALUES ('20240208100231', '%s')", testConfig.TableName, time.Now().Format("2006-01-02 15:04:05")),
+		fmt.Sprintf("INSERT INTO %s (migration, applied_at) VALUES ('20240209110543', '%s')", testConfig.TableName, time.Now().Format("2006-01-02 15:04:05")),
 	}
 
 	err := handlers.RunQueriesInTransaction(db, queries)

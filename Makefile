@@ -34,3 +34,6 @@ ps:
 
 shell:
 	docker compose exec -it golang bash
+
+test:
+	docker compose exec golang sh -c "go test"

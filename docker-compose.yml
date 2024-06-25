@@ -1,0 +1,19 @@
+services:
+
+  golang:
+    image: golang:1.22
+    container_name: "${COMPOSE_PROJECT_NAME}-golang"
+    working_dir: /app
+    environment:
+      DB_NAME: migrate
+      DB_USER: migrate
+      DB_PASSWORD: migrate
+      DB_HOST: sqlite
+      DB_PORT: 3306
+      DB_TYPE: sqlite
+      DB_TABLE: migrations
+      MIGRATION_PATH: migrations/data
+    volumes:
+      - .:/app
+    command: sh -c "go mod tidy && go build -o migrate main.go && tail -f /dev/null"
+

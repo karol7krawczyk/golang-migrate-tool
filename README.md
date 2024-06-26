@@ -14,7 +14,7 @@
 - [Contact](#contact)
 
 ## Overview
-The `golang-migrate` project is designed to provide an efficient and easy-to-use solution for database migrations in Golang. It supports multiple databases and includes features such as version control, rollback, and detailed logging.
+The `golang-migrate` project is designed to provide an efficient and easy-to-use solution for database migrations in Golang. It supports multiple databases and includes features such as version control, rollback, and detailed logging. Project is for people who need to run a bash script before executing the SQL code or are looking for migrations that execute the processes in scripts
 
 ## Features
 - Supports multiple databases (e.g., MySQL, PostgreSQL, SQLite)

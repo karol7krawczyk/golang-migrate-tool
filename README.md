@@ -103,6 +103,12 @@ go run . -debug -up -steps=5
 go run . -history
 ```
 
+### Example Usage inside a docker container
+```bash
+docker exec migrate-golang sh -c "go run . -up"
+docker exec migrate-golang sh -c "go run . -down"
+```
+
 ## Testing
 To run the tests, use the following command after build docker-compose:
 

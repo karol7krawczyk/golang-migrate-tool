@@ -15,7 +15,7 @@ services:
       MIGRATION_PATH: migrations/data
     volumes:
       - .:/app
-    command: sh -c "go mod tidy && go build -o migrate main.go && tail -f /dev/null"
+    command: sh -c "go mod tidy && go build -v -ldflags='-s -w' -o migrate main.go && tail -f /dev/null"
 
 #   mysql:
 #     image: mysql:5.7

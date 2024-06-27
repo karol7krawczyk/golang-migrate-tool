@@ -2,12 +2,10 @@
 
 export COMPOSE_PROJECT_NAME := migrate
 
-
 up:
 	@echo "Starting Docker containers..."
 	docker compose up -d
 	@make -s ps
-	@make -s shell
 
 build:
 	@echo "Building Docker images..."
@@ -36,4 +34,4 @@ shell:
 	docker compose exec -it golang bash
 
 test:
-	docker compose exec golang sh -c "go test"
+	docker compose exec golang sh -c "go test -v ./..."

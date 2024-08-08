@@ -1,4 +1,4 @@
-# Golang Migrate
+# Golang Migrate Tool
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -28,8 +28,8 @@ To get started, clone the repository and install the required dependencies.
 
 ### Clone the repository
 ```bash
-git clone https://github.com/Karol7Krawczyk/golang-migrate.git
-cd golang-migrate
+git clone https://github.com/Karol7Krawczyk/golang-migrate-tool.git
+cd golang-migrate-tool
 ```
 
 ### Run in docker
